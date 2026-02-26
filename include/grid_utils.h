@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 struct grid_space {	
 	//neighbors list
 	struct grid_space* neighbors[6];
@@ -5,7 +7,13 @@ struct grid_space {
 	int y;
 };
 
-enum cardinal {
+struct grid_space default_hex = {
+	.x = 0,
+	.y = 0,
+	.neighbors = {NULL, NULL, NULL, NULL, NULL, NULL},
+};
+
+enum cardinals {
 	NORTH_EAST = 0,
 	EAST = 1,
 	SOUTH_EAST = 2,
@@ -13,3 +21,4 @@ enum cardinal {
 	WEST = 4, 
 	NORTH_WEST = 5,
 };
+
