@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include <raylib.h>
+#include <stdlib.h>
 
 #include "include/grid_utils.h"
 
 int main(void){
 	const int screenWidth = 800;
 	const int screenHeight = 450;
-	
-	struct grid_space grid[7][7];
+	const int* gridSize = malloc(sizeof(int));
+
+	struct grid_space grid[*gridSize][*gridSize];
+
+	free(gridSize);
 
 	//initialize gridspace
 	for(int i = 0; i < 7; ++i){
-		for(int j = 0; j < 7; j++){
+		for(int j = 0; j < *gridSize; j++){
 			grid[i][j] = default_hex;
 
 			//cannot traverse off of the map 
